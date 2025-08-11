@@ -541,3 +541,27 @@ label {
     font-size: 16px;
     color: #ddd;
 }
+
+.required {
+    color: #ff416c;
+}
+
+.success-message {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+    text-align: center;
+}
+
+.error-message {
+    color: #ff416c;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(255, 65, 108, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #ff416c;
+    text-align: center;
+}

@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['username'] = $admin['username'];
                 $_SESSION['is_admin'] = true;
                 $_SESSION['is_super_admin'] = $admin['is_super_admin'];
+                $_SESSION['login_success'] = "Welcome back, " . $admin['username'] . "!";
                 header("Location: admin_dashboard.php");
                 exit();
             }
@@ -46,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['is_admin'] = false;
+                $_SESSION['login_success'] = "Welcome back, " . $user['username'] . "!";
                 header("Location: user_dashboard.php");
                 exit();
             }
@@ -71,6 +73,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
+        
+        <?php if (isset($_SESSION['registration_success'])): ?>
+            <div class="success-message">
+                <p>Registration successful! Please login.</p>
+            </div>
+            <?php unset($_SESSION['registration_success']); ?>
+        <?php endif; ?>
+        
         <form method="POST" action="login.php">
             <div class="form-group">
                 <label for="username">Username or Email:</label>

@@ -2,6 +2,10 @@
 session_start();
 include 'db.php';
 
+if (isset($_SESSION['login_success'])) {
+    echo '<div class="success-message"><p>' . $_SESSION['login_success'] . '</p></div>';
+    unset($_SESSION['login_success']);
+}
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
